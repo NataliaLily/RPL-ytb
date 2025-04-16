@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth:user'], function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::get('/profile', [DashboardController::class, 'profile'])->name('dashboard.profile');
+        Route::get('/reset-password', [DashboardController::class, 'resetPassword'])->name('dashboard.resetPassword');
+        Route::post('/reset-password', [DashboardController::class, 'prosesResetPassword'])->name('dashboard.prosesResetPassword');
 
         #kategori
         Route::get('/kategori',[KategoriController::class, 'index'])->name('kategori.index');
