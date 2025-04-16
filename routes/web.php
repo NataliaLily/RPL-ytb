@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth:user'], function () {
         Route::get('/kategori/ubah/{id}',[KategoriController::class, 'ubah'])->name('kategori.ubah');
         Route::post('/kategori/prosesUbah',[KategoriController::class, 'prosesUbah'])->name('kategori.prosesUbah');
         Route::get('/kategori/hapus/{id}',[KategoriController::class, 'hapus'])->name('kategori.hapus');
+        Route::get('/kategori/export-pdf',[KategoriController::class, 'exportPdf'])->name('kategori.exportPdf');
     });
     
     Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
