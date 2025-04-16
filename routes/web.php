@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,14 @@ Route::group(['middleware' => 'auth:user'], function () {
         Route::post('/kategori/prosesUbah',[KategoriController::class, 'prosesUbah'])->name('kategori.prosesUbah');
         Route::get('/kategori/hapus/{id}',[KategoriController::class, 'hapus'])->name('kategori.hapus');
         Route::get('/kategori/export-pdf',[KategoriController::class, 'exportPdf'])->name('kategori.exportPdf');
+
+        #user
+        Route::get('/user',[UserController::class, 'index'])->name('user.index');
+        Route::get('/user/tambah',[UserController::class, 'tambah'])->name('user.tambah');
+        Route::post('/user/prosesTambah',[UserController::class, 'prosesTambah'])->name('user.prosesTambah');
+        Route::get('/user/ubah/{id}',[UserController::class, 'ubah'])->name('user.ubah');
+        Route::post('/user/prosesUbah',[UserController::class, 'prosesUbah'])->name('user.prosesUbah');
+        Route::get('/user/hapus/{id}',[UserController::class, 'hapus'])->name('user.hapus');
     });
     
     Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
